@@ -1,4 +1,5 @@
 <?php
+//Server login file for phpmyadmin
 include 'php/server_login.php';
 
 if (isset($_GET['search'])) {
