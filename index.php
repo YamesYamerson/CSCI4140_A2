@@ -32,7 +32,9 @@
         </header>
         <!-- Section-->
         <section class="py-1">
-            <div class="container px-4 px-lg-5 mt-5">
+            <!--Search Box-->
+        <?php require_once 'php/search_box.php' ?>
+            <div class="container px-4 px-lg-5 mt-3 mb-1">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php include 'php/parts_cards.php'; ?>
                 </div>

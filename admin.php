@@ -58,7 +58,27 @@
     </div>
 </form>
 
-<?php require_once 'php/functions/fn_pass2hash.php';
+<?php 
+    require_once 'php/functions/fn_pass2hash.php'; 
+    if (isset($_POST['clientID']) && isset($_POST['password'])) {
+        $clientID = $_POST['clientID'];
+        $password = $_POST['password'];
+        // Display a warning message and confirmation prompt
+        echo "<p>Please ensure both Client ID and Password are provided.</p>";
+        echo "<div id='pass2hash-component' style='display: none;'>
+                <?php updatePasswordToHash($clientID, $password); ?>
+            </div>";
+        echo "<script>
+            function showConfirmation(event) {
+                event.preventDefault(); // Prevent the form from submitting directly
+                if (confirm('Are you sure you want to hash the password?')) {
+                    document.getElementById('pass2hash-component').innerHTML = '<?php updatePasswordToHash($clientID, $password); ?>';
+                    event.target.form.submit(); // Submit the form if user confirms
+                }
+            }
+        </script>";
+    }
+?>
 
 
 
