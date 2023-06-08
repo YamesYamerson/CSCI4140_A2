@@ -48,11 +48,9 @@
         }
         // Checks to see if input was verified successfully
         if($client_id_entry == $client_id){ 
-            $pass_ver = TRUE; //NB*****MANUAL OVERRIDE
-            // // Compares database entries with string (includes case)
-            // if (password_verify($password_entry, $password)){
-            //     $pass_ver = TRUE;
-            // }
+            if (password_verify($password_entry, $password)){
+                $pass_ver = TRUE;
+            }
             if($pass_ver == TRUE){
                 $status = 0;
                 $_SESSION["signin"] = TRUE;

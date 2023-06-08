@@ -43,29 +43,15 @@
 
 <h3>pass2hash()</h3>
 
-<!-- HTML Form with an input box for client ID and password -->
-<form class="container row g-3 mt-4 align-items-end" method="POST" action="">
-    <div class="col-5">
-        <label for="clientID" class="form-label">Client ID:</label>
-        <input type="text" class="form-control" name="clientID" id="clientID">
-    </div>
-    <div class="col-5">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" class="form-control" name="password" id="password">
-    </div>
-    <div class="col-2 d-grid">
-        <button type="submit" class="btn btn-primary mt-auto">Hash Password</button>
-    </div>
-</form>
+<?php include "php/pass2hash_form.php"; ?>
 
 <?php 
-    require_once 'php/functions/fn_pass2hash.php'; 
-    if ((isset($_POST['clientID']) && isset($_POST['password'])) && (!empty($_POST['clientID']) && (!empty($_POST['password'])))) {
-        $clientID = $_POST['clientID'];
-        $password = $_POST['password'];
+    $clientID = $_POST['client_id_entry'];
+    $password = $_POST['password_entry'];
+    if (!empty($_POST['client_id_entry']) && !empty($_POST['password_entry']) && isset($_POST['submit'])) {
+        require_once 'php/functions/fn_pass2hash.php'; 
+        updatePasswordToHash($conn, $client_id_entry, $password_entry);
         // Display a warning message and confirmation prompt
-        updatePasswordToHash($clientID, $password);
-    
     }
 ?>
 
