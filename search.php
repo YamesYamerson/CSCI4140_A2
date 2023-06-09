@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +17,10 @@
 <body>
     <!-- Navigation-->
     <?php include 'php/navbar.php'; ?>
-
     <?php include 'php/functions/fn_search.php'; ?>
-
     <div class="container mt-4">
         <?php displaySearchResults(); ?>
     </div>
-
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
