@@ -40,13 +40,13 @@ session_start();
                         <table class="table table-striped table-bordered">
                             <thead class="table-dark">
                             <tr>
-                                <th>Line Number</th>
+                                <th>Line #</th>
                                 <th>Part #</th>
                                 <th>Part Name</th>
                                 <th>Description</th>
                                 <th>Current Price ($)</th>
                                 <th>Quantity</th>
-                                <th>Subtotal</th>
+                                <th>Subtotal ($)</th>
                                 <th></th>
                             </tr>
                             </thead>
