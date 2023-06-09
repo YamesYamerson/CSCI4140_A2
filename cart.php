@@ -69,6 +69,7 @@ session_start();
                                 $stmt->close();
 
                                 $subtotal = $currentPrice771 * $quantity;
+                                $subtotal = number_format((float)$subtotal, 2, '.', '');
                                 $totalCost += $subtotal;
 
                                 echo <<<HTML
@@ -92,7 +93,7 @@ HTML;
                             <tfoot>
                             <tr>
                                 <td colspan="6" class="text-end fw-bold">Total Cost:</td>
-                                <td colspan="2"><?php echo $totalCost ?></td>
+                                <td colspan="2"><?php echo number_format((float)$totalCost, 2, '.', ''); ?></td>
                             </tr>
                             </tfoot>
                         </table>
