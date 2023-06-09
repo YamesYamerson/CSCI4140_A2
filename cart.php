@@ -56,7 +56,7 @@ session_start();
                             $totalCost = 0;
                             $lineNumber = 1;
 
-                            foreach ($_SESSION['cart'] as $item) {
+                            foreach ($_SESSION['cart'] as $key => $item) {
                                 $partNo = $item['partno'];
                                 $quantity = $item['quantity'];
 
@@ -80,7 +80,7 @@ session_start();
                                     <td>$currentPrice771</td>
                                     <td>$quantity</td>
                                     <td>$subtotal</td>
-                                    <td><button class="btn btn-primary btn-sm"><i class="bi bi-cart-plus"></i></button></td>
+                                    <td><a href="php/remove_from_cart.php?key=$key" class="btn btn-primary btn-sm"><i class="bi bi-cart-dash"></i></a></td>
                                 </tr>
 HTML;
                                 $lineNumber++;
