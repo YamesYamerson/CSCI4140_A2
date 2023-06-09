@@ -1,6 +1,8 @@
 <?php
 // Connects to MySQL database and accesses 'artbyyou'
 include 'php/server_login.php';
+include 'php/functions/fn_startSession.php';
+// startSession();
 // General Variables
 $this_part_no = trim($_GET['partno']);
 // Prepared statement to get artist data
@@ -26,7 +28,7 @@ $conn->close(); // Close connection
                 <h4><strong>Price:</strong> <?php echo $currentPrice771; ?></h4>
                 <p class="lead fw-normal text-muted mb-0"><strong>Description:</strong><br><?php echo $partDescription771; ?></p>
 
-                <form action="add_to_cart.php" method="post">
+                <form action="php/add_to_cart.php" method="post">
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <label for="quantity" class="form-label">Quantity:</label>
@@ -42,4 +44,13 @@ $conn->close(); // Close connection
             </div>
         </div>
     </div>
+    <?php 
+
+$array = $_SESSION['cart'];
+
+foreach ($array as $key => $value) {
+    echo $value . "<br />";
+}
+?>
+
 </section>

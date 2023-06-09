@@ -1,6 +1,6 @@
 <?php
     //Starts session
-    require_once 'php/functions/fn_session_start.php';
+    require_once 'php/functions/fn_startSession.php';
     startSession();
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
             <div class="container px-4 px-lg-5 my-4">
             <h3>ADMIN FUNCTIONS:</h3>
 <ul>
-    <li><a href="php/functions/fn_pass2hash.php">pass2hash()</a></li>
+    <li><a href="php/functions/fn_passToHash.php">pass2hash()</a></li>
     <li><a href="php/functions/fn_updateClient.php">updateClient()</a></li>
     <li><a href="php/functions/fn_updateLine.php">updateLine()</a></li>
     <li><a href="php/functions/fn_updatePO.php">updatePO()</a></li>
@@ -49,7 +49,7 @@
     $clientID = $_POST['client_id_entry'];
     $password = $_POST['password_entry'];
     if (!empty($_POST['client_id_entry']) && !empty($_POST['password_entry']) && isset($_POST['submit'])) {
-        require_once 'php/functions/fn_pass2hash.php'; 
+        require_once 'php/functions/fn_passToHash.php'; 
         updatePasswordToHash($conn, $client_id_entry, $password_entry);
         // Display a warning message and confirmation prompt
     }

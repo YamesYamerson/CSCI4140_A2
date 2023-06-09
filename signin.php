@@ -2,7 +2,7 @@
 
 <?php 
     // Starts session
-    require_once 'php/functions/fn_session_start.php';
+    require_once 'php/functions/fn_startSession.php';
     /// Initialize PHP variables to store form data
     $username='';
     $password='';
