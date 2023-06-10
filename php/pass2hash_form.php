@@ -41,19 +41,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $pass2hash_form = <<<FORM
 <!-- HTML Form with an input box for client ID and password -->
+<!-- HTML Form with input fields for client771 -->
 <form class="container row g-3 mt-4 align-items-end" method="POST" action="">
     <div class="col-5">
-        <label for="clientID" class="form-label">Client ID:</label>
-        <input type="text" class="form-control" name="clientID" id="clientID" value="$client_id_entry">
+        <div class="form-floating">
+            <input type="text" class="form-control" name="clientID" id="clientID" value="$client_id_entry" required>
+            <label for="clientID">Client ID</label>
+        </div>
     </div>
     <div class="col-5">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" class="form-control" name="password" id="password" value="$password_entry">
+        <div class="form-floating">
+            <input type="password" class="form-control" name="password" id="password" value="$password_entry" required>
+            <label for="password">Password</label>
+        </div>
     </div>
     <div class="col-2 d-grid">
         <button type="submit" name="submit" class="btn btn-primary mt-auto" value="Hash Password">Hash Password</button>
     </div>
 </form>
+
 FORM;
 
 echo $pass2hash_form;

@@ -42,8 +42,10 @@
 </ul>
 
 <h3>pass2hash()</h3>
-
 <?php include "php/pass2hash_form.php"; ?>
+<h3 class="mt-5">update_client()</h3>
+<?php include "php/update_client.php"; ?>
+
 
 <?php 
     $clientID = $_POST['client_id_entry'];
