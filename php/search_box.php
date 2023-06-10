@@ -50,19 +50,17 @@ if (isset($_GET['search'])) {
     $stmt->close();
 } else {
     echo <<<HTML
-<div class="container d-flex align-items-center justify-content-center mt-2 mb-3">
+<div class="container mt-2 mb-3">
     <div class="row">
-        <div class="d-flex justify-content-center">
-            <form method="GET" action="search.php" class="d-flex">
-                <div class="form-floating col-8">
-                    <input type="text" class="form-control" id="floatingSearch" name="search" placeholder="Search by Part ID" required>
-                    <label for="floatingSearch">Search by Part ID</label>
-                </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary h-100">Search</button>
-                </div>
-            </form>
-        </div>
+        <form method="GET" action="search.php" class="d-flex justify-content-center">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingSearch" name="search" placeholder="Search by Part ID" required>
+                <label for="floatingSearch">Search by Part ID</label>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary h-100">Search</button>
+            </div>
+        </form>
     </div>
 </div>
 

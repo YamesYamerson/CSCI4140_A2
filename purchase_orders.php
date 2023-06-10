@@ -8,6 +8,7 @@ include 'php/server_login.php';
 // Retrieve the current customer's ID from the session
 $client_id = $_SESSION['client_id'];
 
+
 // Retrieve purchase orders for the current customer
 $stmt = $conn->prepare("SELECT purchaseorders771.poNo771, purchaseorders771.datePO771, purchaseorders771.status771 FROM purchaseorders771 WHERE clientId771 = ?");
 $stmt->bind_param("s", $client_id);
@@ -54,14 +55,15 @@ $conn->close();
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <!-- Output Div for Purchase Orders -->
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead class="table-dark">
                                 <tr>
                                     <th>Purchase Order Number</th>
-                                    <th>Data PO</th>
+                                    <th>Date PO</th>
                                     <th>Status</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,17 +71,18 @@ $conn->close();
                                 if (count($purchaseOrders) > 0) {
                                     foreach ($purchaseOrders as $purchaseOrder) {
                                         $poNo = $purchaseOrder['poNo771'];
-                                        $dataPO = $purchaseOrder['datePO771'];
+                                        $datePO = $purchaseOrder['datePO771'];
                                         $status = $purchaseOrder['status771'];
 
                                         echo "<tr>";
                                         echo "<td>$poNo</td>";
-                                        echo "<td>$dataPO</td>";
+                                        echo "<td>$datePO</td>";
                                         echo "<td>$status</td>";
+                                        echo "<td><a href='purchase_order_line.php?poNo=$poNo' class='btn btn-primary' value='poNo'>View PO Lines</a></td>";
                                         echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='3'>No purchase orders found for the current customer.</td></tr>";
+                                    echo "<tr><td colspan='4'>No purchase orders found for the current customer.</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -91,7 +94,6 @@ $conn->close();
     </section>
     <!-- Footer-->
     <?php include 'php/footer.php'; ?>
-
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
