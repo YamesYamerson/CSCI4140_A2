@@ -10,7 +10,9 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="index_list.php">List Parts</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                <li class="nav-item dropdown">
+                <li class="nav-item"><a class="nav-link" href="purchase_orders.php">Orders</a></li>
+
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">All Products</a></li>
@@ -18,17 +20,11 @@
                         <li><a class="dropdown-item" href="#!">Popular Items</a></li>
                         <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                     </ul>
-                </li>
+                </li> -->
 
             </ul>
             <?php include "php/login_create_account_button.php"; ?>
-            <form class="d-flex">
-                <a class="btn btn-outline-dark" href="cart.php">
-                    <i class="bi-cart-fill me-1"></i>
-                    Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </a>
-            </form>
+            <?php include "php/navbar_cart_icon.php"; ?>
 
         </div>
     </div>

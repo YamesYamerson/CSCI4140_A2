@@ -1,7 +1,6 @@
 <?php
     //Starts session
-    require_once 'php/function/fn_session_start.php';
-    startSession();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +31,10 @@
         </header>
         <!-- Section-->
         <section class="py-2">
-            <?php require_once 'php/search_box.php' ?>
-            <?php require_once 'php/parts_card_list.php'; ?>
+        <!--Search Box-->
+        <?php require_once 'php/search_box.php' ?>
+        <!--Parts Cards as List-->
+        <?php require_once 'php/parts_card_list.php'; ?>
         </section>
         <!-- Footer-->
         <?php require_once 'php/footer.php'; ?>

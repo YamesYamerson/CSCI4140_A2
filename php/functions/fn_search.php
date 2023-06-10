@@ -1,17 +1,18 @@
 <?php
+//Server login file for phpmyadmin
 include 'php/server_login.php';
+
 if (isset($_GET['search'])) {
     $searchValue = $_GET['search'];
 
-    $stmt = $conn->prepare("SELECT partNo771, partName771, partDescription771, currentPrice771 FROM parts771 WHERE partId771 = ?");
-    $stmt->bind_param("i", $searchValue);
+    $stmt = $conn->prepare("SELECT partNo771, partName771, partDescription771, currentPrice771 FROM parts771 WHERE partNo771 = ?");
+    $stmt->bind_param("s", $searchValue);
     $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($partNo771, $partName771, $partDescription771, $currentPrice771);
+    $result = $stmt->get_result();
 
-    if ($stmt->num_rows > 0) {
+    if ($result->num_rows > 0) {
         echo <<<HTML
-        <div class="container">
+        <div class="container my-4">
             <h2>Search Results</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
@@ -26,7 +27,12 @@ if (isset($_GET['search'])) {
                     <tbody>
         HTML;
 
-        while ($stmt->fetch()) {
+        while ($row = $result->fetch_assoc()) {
+            $partNo771 = $row['partNo771'];
+            $partName771 = $row['partName771'];
+            $partDescription771 = $row['partDescription771'];
+            $currentPrice771 = $row['currentPrice771'];
+
             echo <<<HTML
             <tr>
                 <td>$partNo771</td>
@@ -49,22 +55,7 @@ if (isset($_GET['search'])) {
 
     $stmt->close();
 } else {
-    echo <<<HTML
-<div class="container mt-2 mb-3">
-    <div class="row">
-        <form method="GET" action="search.php" class="d-flex justify-content-center">
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingSearch" name="search" placeholder="Search by Part ID" required>
-                <label for="floatingSearch">Search by Part ID</label>
-            </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-primary h-100">Search</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-HTML;
+    echo "<p>No search query specified.</p>";
 }
 
 $conn->close();

@@ -1,6 +1,6 @@
 <?php
     //Starts session
-    require_once 'php/functions/fn_session_start.php';
+    require_once 'php/functions/fn_startSession.php';
     startSession();
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
         <!-- Navigation-->
         <?php include 'php/navbar.php'; ?>
         <!-- Header-->
-        <header class="bg-dark py-5">
+        <header class="bg-dark py-2">
             <div class="container px-4 px-lg-5 my-1">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">About Us</h1>

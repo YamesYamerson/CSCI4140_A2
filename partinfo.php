@@ -1,9 +1,7 @@
 <?php 
-    //Starts session
-    require_once 'php/functions/fn_session_start.php';
-    startSession();
+session_start(); 
+print_r($_SESSION['cart']);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
