@@ -1,6 +1,9 @@
 <?php
     //Starts session
     session_start();
+    if (!isset($_SESSION["signin"]) || $_SESSION["signin"] !== true) {
+        $_SESSION["signin"] = false;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
