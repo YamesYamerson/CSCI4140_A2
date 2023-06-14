@@ -5,8 +5,13 @@ session_start();
 // Include database connection and configuration
 include 'php/server_login.php';
 
-// Retrieve the current customer's ID from the session
-$client_id = $_SESSION['client_id'];
+
+// Check if client_id is set in the session
+if (!isset($_SESSION['client_id'])) {
+    $client_id = null;
+} else {
+    $client_id = $_SESSION['client_id'];
+}
 
 
 // Retrieve purchase orders for the current customer
