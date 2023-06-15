@@ -42,7 +42,7 @@ while ($stmt -> fetch()) {
         $status = 0;
     } 
 }
-if($username_entry == null ||(strlen($username_entry > 0) && strlen($username_entry))){
+if($username_entry == null ||(strlen($username_entry < 1) && strlen($username_entry) < 30)){
     $username_error_message = 'Username must be between 1-30 characters';
     $errors[] = $username_error_message;
 }else{
@@ -116,7 +116,7 @@ if (isset($_POST["Submit"])) {
         // Prepare the statements for inserting data into the artists and signin tables
         $stmt = mysqli_prepare($conn, "INSERT INTO clients771 (username771, clientName771, clientCity771, companyName771, clientCompPassword771) VALUES (?,?,?,?,?)");
         // Bind the variables to the prepared statements
-        mysqli_stmt_bind_param($stmt, "sssss", $username_entry, $name_entry, $client_city_entry, $company_name_entry, $hashed_password);
+        mysqli_stmt_bind_param($stmt, "sssss", $username_entry, $client_name_entry, $client_city_entry, $company_name_entry, $hashed_password);
         // Execute the prepared statements and check if the data was inserted successfully
         if (mysqli_stmt_execute($stmt)) {
         $message2 = "Data inserted into the signin table successfully.";
@@ -195,7 +195,7 @@ $createAccout_card = <<<SIGNUPCARD
 SIGNUPCARD;
 //Displays signin form
 echo $createAccout_card;
-if(!isset($_POST["Submit"] )){
-    unset($username_error_message, $name_error_message, $username_error_message, $city_error_message, $company_name_error_message, $password_error_message, $password_error_message2);
- }
+// if(!isset($_POST["Submit"] )){
+//     unset($username_error_message, $name_error_message, $username_error_message, $city_error_message, $company_name_error_message, $password_error_message, $password_error_message2);
+//  }
 ?>
